@@ -8,7 +8,11 @@ interface MetricsCardProps {
   contractAddress: string;
 }
 
-export function MetricsCard({ totalEth, totalVotes, contractAddress }: MetricsCardProps) {
+export function MetricsCard({
+  totalEth,
+  totalVotes,
+  contractAddress,
+}: MetricsCardProps) {
   const openEtherscan = () => {
     window.open(`https://etherscan.io/address/${contractAddress}`, "_blank");
   };
@@ -19,7 +23,7 @@ export function MetricsCard({ totalEth, totalVotes, contractAddress }: MetricsCa
         <h2 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
           Métricas da Votação
         </h2>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
             <div className="flex items-center gap-2 text-muted-foreground">
@@ -30,7 +34,7 @@ export function MetricsCard({ totalEth, totalVotes, contractAddress }: MetricsCa
               {totalEth.toFixed(3)} ETH
             </p>
           </div>
-          
+
           <div className="space-y-2">
             <div className="flex items-center gap-2 text-muted-foreground">
               <Users className="h-4 w-4" />
@@ -43,7 +47,7 @@ export function MetricsCard({ totalEth, totalVotes, contractAddress }: MetricsCa
         <Button
           onClick={openEtherscan}
           variant="outline"
-          className="w-full border-primary/30 hover:bg-primary/10 hover:border-primary transition-all duration-300"
+          className="w-full hover:text-primary border-primary/30 hover:bg-primary/10 hover:border-primary transition-all duration-300"
         >
           <ExternalLink className="mr-2 h-4 w-4" />
           Ver Contrato no EtherScan

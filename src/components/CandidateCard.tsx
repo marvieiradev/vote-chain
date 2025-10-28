@@ -27,19 +27,19 @@ export function CandidateCard({ candidate, onVote, rank }: CandidateCardProps) {
     <>
       <Card className="group overflow-hidden bg-gradient-card backdrop-blur-xl border-primary/20 shadow-glass hover:shadow-hover transition-all duration-300 hover:scale-[1.02] animate-fade-in">
         <div className="relative">
-          {rank && rank <= 3 && (
+          {rank && (
             <Badge className="absolute top-4 right-4 z-10 bg-gradient-primary text-white shadow-lg">
               #{rank}
             </Badge>
           )}
-          
+
           <div className="relative h-64 overflow-hidden">
             <img
               src={candidate.image}
               alt={candidate.name}
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent opacity-90" />
+            <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent opacity-90" />
           </div>
         </div>
 
@@ -51,11 +51,15 @@ export function CandidateCard({ candidate, onVote, rank }: CandidateCardProps) {
 
           <div className="flex items-center gap-2 text-sm">
             <TrendingUp className="h-4 w-4 text-primary" />
-            <span className="font-semibold text-primary">{candidate.votes} votos</span>
+            <span className="font-semibold text-primary">
+              {candidate.votes} votos
+            </span>
           </div>
 
           <div className="space-y-3">
-            <h4 className="font-semibold text-sm text-muted-foreground">Propostas de Governo:</h4>
+            <h4 className="font-semibold text-sm text-muted-foreground">
+              Propostas de Governo:
+            </h4>
             <ul className="space-y-2">
               {candidate.proposals.map((proposal, index) => (
                 <li key={index} className="text-sm flex items-start gap-2">

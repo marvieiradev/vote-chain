@@ -83,7 +83,10 @@ const Index = () => {
     );
   };
 
-  const totalVotes = candidates.reduce((sum, candidate) => sum + candidate.votes, 0);
+  const totalVotes = candidates.reduce(
+    (sum, candidate) => sum + candidate.votes,
+    0
+  );
   const totalEth = totalVotes * 0.025;
 
   const rankedCandidates = [...candidates].sort((a, b) => b.votes - a.votes);
@@ -102,10 +105,12 @@ const Index = () => {
                 <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
                   VoteChain
                 </h1>
-                <p className="text-xs text-muted-foreground">Votação Transparente via Blockchain</p>
+                <p className="text-xs text-muted-foreground">
+                  Votação Transparente via Blockchain
+                </p>
               </div>
             </div>
-            
+
             <div className="flex items-center gap-3">
               <ConnectWallet />
               <ThemeToggle />
@@ -126,12 +131,15 @@ const Index = () => {
         </section>
 
         {/* Ranking Section */}
-        <section className="space-y-6 animate-fade-in" style={{ animationDelay: "0.1s" }}>
+        <section
+          className="space-y-6 animate-fade-in"
+          style={{ animationDelay: "0.1s" }}
+        >
           <div className="flex items-center gap-3">
             <Trophy className="h-8 w-8 text-primary" />
             <h2 className="text-3xl font-bold">Ranking dos Candidatos</h2>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {rankedCandidates.map((candidate, index) => (
               <CandidateCard
